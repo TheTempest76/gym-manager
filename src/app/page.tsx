@@ -1,8 +1,12 @@
 import Hero from "@/components/hero";
 import Image from "next/image";
-
+import GymFeatures from "@/components/deez";
 export default function Home() {
   return (
-    <Hero />
+    <div>
+      <Hero />
+    <GymFeatures/>
+    </div>
+    
   );
 }

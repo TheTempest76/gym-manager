@@ -62,7 +62,7 @@ export default function DashboardPage() {
   const getEquipmentMaintenance = async () => {
     setEquipmentQuery({ isLoading: true, error: null, data: null });
     try {
-      const response = await fetch('/api/equipment/maintenance');
+      const response = await fetch('/api/equipment/Query');
       const data = await response.json();
       setEquipmentQuery({ isLoading: false, error: null, data });
     } catch (error) {
@@ -74,7 +74,7 @@ export default function DashboardPage() {
   const getStaffMetrics = async (role: string) => {
     setStaffQuery({ isLoading: true, error: null, data: null });
     try {
-      const response = await fetch(`/api/staff/metrics?role=${role}`);
+      const response = await fetch(`/api/staff/query?role=${role}`);
       const data = await response.json();
       setStaffQuery({ isLoading: false, error: null, data });
     } catch (error) {
