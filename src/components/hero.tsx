@@ -1,10 +1,19 @@
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import { ArrowRight, Dumbbell } from 'lucide-react'
-
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 export default function Hero() {
+
   return (
+    
     <div className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+      
       {/* Background with overlay */}
       <div 
         className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center"
@@ -14,17 +23,37 @@ export default function Hero() {
       >
         <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/60 to-black/70" />
         <div className="absolute inset-0 bg-grid-white/[0.02]" />
+        
       </div>
 
       {/* Content */}
+      <ClerkProvider>
+        <div className="absolute top-4 right-4">
+          <SignedOut>
+        <SignInButton >
+          <Button 
+            size="lg" 
+            className="group relative overflow-hidden bg-primary hover:bg-primary/90 text-primary-foreground transition-transform hover:scale-105 active:scale-100"
+          >
+            Sign In
+            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer" />
+          </Button>
+        </SignInButton>
+          </SignedOut>
+          <SignedIn>
+        <UserButton />
+          </SignedIn>
+        </div>
+      </ClerkProvider>
       <div className="relative container px-4 md:px-6">
         <div className="flex flex-col items-center text-center space-y-8">
           <div className="space-y-4">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none text-white">
-              Transform Your Gym Management
+              Welcome to Gym Management
             </h1>
             <p className="mx-auto max-w-[700px] text-gray-300 md:text-xl">
-              Streamline operations, boost member engagement, and grow your fitness business with our all-in-one management solution.
+              Streamline operations and grow your fitness business with our all-in-one solution.
             </p>
           </div>
 

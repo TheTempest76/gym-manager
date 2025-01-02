@@ -33,3 +33,4 @@ export async function GET() {
     return NextResponse.json({ error: 'Error fetching members' }, { status: 500 })
   }
 }
+

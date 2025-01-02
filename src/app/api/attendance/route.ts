@@ -21,6 +21,7 @@ export async function POST(request: Request) {
   
   export async function GET() {
     try {
+
       const attendance = await prisma.attendance.findMany({
         include: {
           member: true
@@ -30,4 +31,5 @@ export async function POST(request: Request) {
     } catch (error) {
       return NextResponse.json({ error: 'Error fetching attendance' }, { status: 500 })
     }
-  }
+  } 
+  

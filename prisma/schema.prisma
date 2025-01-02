@@ -2,7 +2,7 @@ generator client {
   provider = "prisma-client-js"
 }
 
-datasource db {
+datasource db { 
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
@@ -55,7 +55,7 @@ model Attendance {
   createdAt       DateTime      @default(now())
   updatedAt       DateTime      @updatedAt
 }
-
+    
 model Equipment {
   id              Int           @id @default(autoincrement())
   name            String
